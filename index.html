@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My experiment</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="scripts/jspsych-4.2.js"></script>
+    <script src="scripts/CRM mouse control v3.js"></script>
+    <link href="jspsych.css" rel="stylesheet" type="text/css"></link>
+  </head>
+  <body>
+ </body>
+  <script>
+  var stimulus = 'AybCUZVa37s';
+
+var trial = {
+  type: 'CRM',
+  stimuli: [stimulus],
+  is_html: true,
+  choices: ['enter'],
+  prompt:'Please indicate how effective you find this ad right now'
+}
+
+    /* create experiment definition array */
+    var experiment = [];
+    experiment.push(trial);
+    /* start the experiment */
+    jsPsych.init({
+      experiment_structure: experiment,
+      on_finish: function() {
+        jsPsych.data.localSave('data.csv', 'csv');
+      }
+    });
+  </script>
+</html>
